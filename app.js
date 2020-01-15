@@ -10,7 +10,7 @@ function getRandomInt(customerMin, customerMax) {
   var randomNumber = Math.random() * (customerMax - customerMin) + customerMin;
   return Math.floor(randomNumber);
 }
-// console.log(getRandomInt(23,65));
+console.log(getRandomInt(23,65));
 
 // //store object//
 // var seattleStore = {
@@ -277,75 +277,104 @@ function getRandomInt(customerMin, customerMax) {
 // for(var i = 0; i < hours.length; i++){
 //   //creates a heading called tableHeader
 //   var tableHeader = document.createElement('th');
-//   //add text in the table header relative to the hours array[0, 1, 2,....]
-//   tableHeader.textContent = hours[i];
-//   //append will take the value defined in tableHeader and append it to the headerRow
-//   headerRow.appendChild(tableHeader);
+// //   //add text in the table header relative to the hours array[0, 1, 2,....]
+// //   tableHeader.textContent = hours[i];
+// //   //append will take the value defined in tableHeader and append it to the headerRow
+// //   headerRow.appendChild(tableHeader);
+// // }
+// // // will append the headerRow to the coffeeTable
+// // coffeeTable.appendChild(headerRow);
+
+
+// // //Creates rows of data using a nested for loop to create a row as many times as needed
+// // //for loop that runs 4 times, (need to switch it to number of locations)
+
+// // for(var i = 0; i < 5; i++){
+// // //variable row is created
+// //   var row = document.createElement('tr');
+// //   //nested for loop
+// //   for(var j = 0; j < hours.length; j++){
+// //     //data element is created
+// //     var tableData = document.createElement('td');
+// //     //assigns a random number to table data (need to reference the min/max from each sites)
+// //     tableData.textContent = Math.floor(getRandomInt(0, 100));
+// //     //adds that data to a row
+// //     row.appendChild(tableData);
+// //   }
+// //   // append the value of row into the table
+// //   coffeeTable.appendChild(row);
+// // }
+// // //append the rows to the myTable table
+// // myTable.appendChild(coffeeTable);
+
+
+// // //Need to add another column with the totals for each location, add to the end of each nested for loop
+
+
+
+// // //Need to create a 3rd for loop to create a row of totals
+// // // will need to select the appropriate value from each row across the multiple locations
+
+
+
+
+// // seattleStore.render();
+// // tokyoStore.render();
+// // dubaiStore.render();
+// // parisStore.render();
+// // limaStore.render();
+
+
+// // var salesPerHour = [];
+// var badConstructor = Cookiemonster(Seatte, 25, 45, 5);
+// console.log(badConstructor);
+
+// /////////////////////////Constructor////////////////////////////
+// //inputs name, customerMin, customerMax, customerAverage and determines salesperhout
+// function Cookiemonster(name, customerMin, customerMax, customerAverage){
+//   this.name = name;
+//   this.customerMin = customerMin;
+//   this.customerMax = customerMax;
+//   this.customerAverage = customerAverage ;
+//   this.salesPerHour = function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+//     console.log(this.salesPerHour);
+//   };
 // }
-// // will append the headerRow to the coffeeTable
-// coffeeTable.appendChild(headerRow);
 
-
-// //Creates rows of data using a nested for loop to create a row as many times as needed
-// //for loop that runs 4 times, (need to switch it to number of locations)
-
-// for(var i = 0; i < 5; i++){
-// //variable row is created
-//   var row = document.createElement('tr');
-//   //nested for loop
-//   for(var j = 0; j < hours.length; j++){
-//     //data element is created
-//     var tableData = document.createElement('td');
-//     //assigns a random number to table data (need to reference the min/max from each sites)
-//     tableData.textContent = Math.floor(getRandomInt(0, 100));
-//     //adds that data to a row
-//     row.appendChild(tableData);
-//   }
-//   // append the value of row into the table
-//   coffeeTable.appendChild(row);
-// }
-// //append the rows to the myTable table
-// myTable.appendChild(coffeeTable);
-
-
-// //Need to add another column with the totals for each location, add to the end of each nested for loop
-
-
-
-// //Need to create a 3rd for loop to create a row of totals
-// // will need to select the appropriate value from each row across the multiple locations
-
-
-
-
-// seattleStore.render();
-// tokyoStore.render();
-// dubaiStore.render();
-// parisStore.render();
-// limaStore.render();
-
-
-// var salesPerHour = [];
-var badConstructor = Cookiemonster(Seatte, 25, 45, 5);
-console.log(badConstructor);
-
-/////////////////////////Constructor////////////////////////////
-//inputs name, customerMin, customerMax, customerAverage and determines salesperhout
-function Cookiemonster(name, customerMin, customerMax, customerAverage){
-  this.name = name;
-  this.customerMin = customerMin;
-  this.customerMax = customerMax;
-  this.customerAverage = customerAverage ;
-  this.salesPerHour = function(){
-    // Go through the hours of the day
-    for (var i = 0; i < hours.length; i++){
-    // create a variable named customersPerHour and call the random function
-      var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
-      // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
-      var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
-      // add the totalCookies to the salesPerHourArray
-      this.salesPerHour.push(totalCookiesPerHour);
-    }
-    console.log(this.salesPerHour);
-  };
+//Seattle store object//
+seattleStore = {
+  store: 'Seattle',
+  customerMin: 23,
+  customerMax: 65,
+  customerAverage: 6.3,
+//This function calculates customers per HR & sales per HR//
+hourlySales: function(){
+  var customersPerHour = [];
+  var salesPerCustomer = [];
+  for (i=0; i<hours.length; i++){
+      customersPerHour.push(getRandomInt(this.customerMin,this.customerMax));
+  }    
+  for (i=0; i<hours.length; i++){
+      salesPerCustomer.push(customersPerHour[i] * this.customerAverage);
+  }
+  console.log(customersPerHour);
+  console.log(salesPerCustomer);
+  }
+  ,
+totalSales: function(){
+  for (i=0; i<salesPerCustomer.length; i++);
+  var total = salesPerCustomer.push
+  console.log (total);
+  }
 }
+seattleStore.hourlySales();
+seattleStore.totalSales();

@@ -1,363 +1,380 @@
+// // Collaborated with Alex and Anthony, mad props for their skills//
 'use strict';
 
 var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-//RNGESUS//
+// var allGlobal = [];
+
+// //RNGESUS//
 function getRandomInt(customerMin, customerMax) {
   var randomNumber = Math.random() * (customerMax - customerMin) + customerMin;
   return Math.floor(randomNumber);
 }
 console.log(getRandomInt(23,65));
 
-//store object//
-var seattleStore = {
-  name: 'Seattle',
-  customerMin: 23,
-  customerMax: 65,
-  customerAverage: 6.3,
-  salesPerHour: [],
-  //Customer/sales per hour//
-  getHourlySales: function(){
-    // Go through the hours of the day
-    for (var i = 0; i < hours.length; i++){
-    // create a variable named customersPerHour and call the random function
-      var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
-      // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
-      var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
-      // add the totalCookies to the salesPerHourArray
-      this.salesPerHour.push(totalCookiesPerHour);
-    }
-    console.log(this.salesPerHour);
-  },
-  render: function(){
-    this.getHourlySales();
-    // output HTML to the DOC
-    // Unordered list with the name of the city
-    var storesArticle = document.getElementById('stores');
-    var cityUL = document.createElement('ul');
-    var cityHeader = document.createElement('h1');
-    cityHeader.textContent = this.name;
-    cityUL.appendChild(cityHeader);
-    // I need to create a LI for every hour the store is open
-    for(var i = 0; i < hours.length; i++){
-      var hourLI = document.createElement('li');
-      hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
-      cityUL.appendChild(hourLI);
-    }
-    // create the total
-    var total = 0;
-    for(var i = 0; i < this.salesPerHour.length; i++){
-      total += this.salesPerHour[i];
-    }
-    var totalLI = document.createElement('li');
-    totalLI.textContent = `Total ${total} cookies`;
-    cityUL.appendChild(totalLI);
-
-    storesArticle.appendChild(cityUL);
-    // 2 pieces of data: hourOfDay : ## cookies
-  },
-};
-
-// var myTable = document.getElementById('myTable');
-// var coffeeArray = ['Latte', 'Mocha', 'Americano', 'Cappiccino'];
-
-// var coffeeTable = document.createElement('table');
-// var headerRow = document.createElement('tr');
-
-// for(var i = 0; i < coffeeArray.length; i++){
-//   var tableHeader = document.createElement('th');
-//   tableHeader.textContent = coffeeArray[i];
-//   headerRow.appendChild(tableHeader);
-// }
-// coffeeTable.appendChild(headerRow);
-
-// for(var i = 0; i < 4; i++){
-//   var row = document.createElement('tr');
-//   for(var j = 0; j < coffeeArray.length; j++){
-//     var tableData = document.createElement('td');
-//     tableData.textContent = Math.floor(getRandomInt(0, 100));
-//     row.appendChild(tableData);
-//   }
-//   coffeeTable.appendChild(row);
-// }
-
-// myTable.appendChild(coffeeTable);
-
-seattleStore.render();
-
-
-// function Coffee(size, type, price){
-//   // set our properties using this
-//   this.size = size;
-//   this.coffeeType = type;
-//   this.potato = price;
-//   this.temperature = 180;
-//   this.ingredients = [];
-//   this.generateHourSales = function(){
-//     console.log('hello');
-//   };
-// }
-
-// Coffee.prototype.render = function(){
-//   // put rendering logic here
-// };
-// // to Create an object using a constructor function
-// // we INSTANTIATE the object using the construction function
-
-// var amandasLatte = new Coffee('Large', 'latte', 5);
-
-// console.log(amandasLatte.size);
-// amandasLatte.render();
-
-
-
-// //Worked with Alex, used his code given issues with mine to progress to the next steps of the lab
-
-
-// //These are  the hours the stores are open//
-// var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-// //This is the  random nember generator//
-// function getRandomInt(customerMin, customerMax){
-//   return Math.floor(Math.random() * (customerMax - customerMin)) + customerMin;
-// }
-// console.log(getRandomInt(23,65));
-
-// function totalSalesCalc(salesPerCustomer){
-//   for (i = 0; i < hours.length; i++);
-//   return;
-// //   console.log (total);
-// }
-
-// //Seattle store object//
+// //store object//
 // var seattleStore = {
 //   name: 'Seattle',
 //   customerMin: 23,
 //   customerMax: 65,
 //   customerAverage: 6.3,
 //   salesPerHour: [],
-
-//   //This function calculates customers per HR & sales per HR//
+//   //Customer/sales per hour//
 //   getHourlySales: function(){
-
+//     // Go through the hours of the day
 //     for (var i = 0; i < hours.length; i++){
-//       // create a variable named customersPerHour and call the random function
-//       var customersPerHour = getRandomInt(this.customerMin,this.customerMax);
-
-//       // create a new variable called totalCookiesPerHour = customerPerHour * this.customerAverage
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
 //       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
-//       //add the totalCookiesPerHour to the salesPerHourArray
+//       // add the totalCookies to the salesPerHourArray
 //       this.salesPerHour.push(totalCookiesPerHour);
 //     }
 //     console.log(this.salesPerHour);
-
 //   },
-
 //   render: function(){
+//     this.getHourlySales();
 //     // output HTML to the DOC
-
-//     // Unordered list wit hthe name of the city
+//     // Unordered list with the name of the city
 //     var storesArticle = document.getElementById('stores');
 //     var cityUL = document.createElement('ul');
-//     var cityHeader = document.createElement('hi');
+//     var cityHeader = document.createElement('h1');
 //     cityHeader.textContent = this.name;
 //     cityUL.appendChild(cityHeader);
-
-
-//     //I need to create a LI for every hour the store is open
+//     // I need to create a LI for every hour the store is open
 //     for(var i = 0; i < hours.length; i++){
-//       var hourLI = document.createElement('Li');
+//       var hourLI = document.createElement('li');
 //       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
 //       cityUL.appendChild(hourLI);
 //     }
 //     // create the total
 //     var total = 0;
-//     for(var i = 0; i < this.salesPerHour.length; i++)
+//     for(var i = 0; i < this.salesPerHour.length; i++){
 //       total += this.salesPerHour[i];
-
+//     }
 //     var totalLI = document.createElement('li');
 //     totalLI.textContent = `Total ${total} cookies`;
 //     cityUL.appendChild(totalLI);
 
 //     storesArticle.appendChild(cityUL);
-
-
-// //CPA = create, populate and append
-
-//     // 2 pieces of data: hourOfDay: ## cookies
-
-//     //create the li, popultate it, and then append it
-
+//     // 2 pieces of data: hourOfDay : ## cookies
 //   },
-
 // };
-// seattleStore.getHourlySales();
-// seattleStore.render();
 
-
-
-//     for (i = 0; i < hours.length; i++){
-//       salesPerCustomer.push(customersPerHour[i] * this.customerAverage);
+// //store object//
+// var tokyoStore = {
+//   name: 'Tokyo',
+//   customerMin: 3,
+//   customerMax: 24,
+//   customerAverage: 1.2,
+//   salesPerHour: [],
+//   //Customer/sales per hour//
+//   getHourlySales: function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
 //     }
-//     console.log(customersPerHour);
-//     console.log(salesPerCustomer);
-//   }
-//   ,
-//   totalSales: function(){
-//     for (var i = 0; i < salesPerCustomer.length; i++);
-//     var total = salesPerCustomer.push;
-//     console.log (total);
+//     console.log(this.salesPerHour);
+//   },
+//   render: function(){
+//     this.getHourlySales();
+//     // output HTML to the DOC
+//     // Unordered list with the name of the city
+//     var storesArticle = document.getElementById('stores');
+//     var cityUL = document.createElement('ul');
+//     var cityHeader = document.createElement('h1');
+//     cityHeader.textContent = this.name;
+//     cityUL.appendChild(cityHeader);
+//     // I need to create a LI for every hour the store is open
+//     for(var i = 0; i < hours.length; i++){
+//       var hourLI = document.createElement('li');
+//       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
+//       cityUL.appendChild(hourLI);
+//     }
+//     // create the total
+//     var total = 0;
+//     for(var i = 0; i < this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totalLI = document.createElement('li');
+//     totalLI.textContent = `Total ${total} cookies`;
+//     cityUL.appendChild(totalLI);
+
+//     storesArticle.appendChild(cityUL);
+//     // 2 pieces of data: hourOfDay : ## cookies
 //   },
 // };
 
-// seattleStore.totalSales();
+// //store object//
+// var dubaiStore = {
+//   name: 'Dubai',
+//   customerMin: 11,
+//   customerMax: 38,
+//   customerAverage: 3.7,
+//   salesPerHour: [],
+//   //Customer/sales per hour//
+//   getHourlySales: function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+//     console.log(this.salesPerHour);
+//   },
+//   render: function(){
+//     this.getHourlySales();
+//     // output HTML to the DOC
+//     // Unordered list with the name of the city
+//     var storesArticle = document.getElementById('stores');
+//     var cityUL = document.createElement('ul');
+//     var cityHeader = document.createElement('h1');
+//     cityHeader.textContent = this.name;
+//     cityUL.appendChild(cityHeader);
+//     // I need to create a LI for every hour the store is open
+//     for(var i = 0; i < hours.length; i++){
+//       var hourLI = document.createElement('li');
+//       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
+//       cityUL.appendChild(hourLI);
+//     }
+//     // create the total
+//     var total = 0;
+//     for(var i = 0; i < this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totalLI = document.createElement('li');
+//     totalLI.textContent = `Total ${total} cookies`;
+//     cityUL.appendChild(totalLI);
+
+//     storesArticle.appendChild(cityUL);
+//     // 2 pieces of data: hourOfDay : ## cookies
+//   },
+// };
+
+// //store object//
+// var parisStore = {
+//   name: 'Paris',
+//   customerMin: 20,
+//   customerMax: 38,
+//   customerAverage: 2.3,
+//   salesPerHour: [],
+//   //Customer/sales per hour//
+//   getHourlySales: function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+//     console.log(this.salesPerHour);
+//   },
+//   render: function(){
+//     this.getHourlySales();
+//     // output HTML to the DOC
+//     // Unordered list with the name of the city
+//     var storesArticle = document.getElementById('stores');
+//     var cityUL = document.createElement('ul');
+//     var cityHeader = document.createElement('h1');
+//     cityHeader.textContent = this.name;
+//     cityUL.appendChild(cityHeader);
+//     // I need to create a LI for every hour the store is open
+//     for(var i = 0; i < hours.length; i++){
+//       var hourLI = document.createElement('li');
+//       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
+//       cityUL.appendChild(hourLI);
+//     }
+//     // create the total
+//     var total = 0;
+//     for(var i = 0; i < this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totalLI = document.createElement('li');
+//     totalLI.textContent = `Total ${total} cookies`;
+//     cityUL.appendChild(totalLI);
+
+//     storesArticle.appendChild(cityUL);
+//     // 2 pieces of data: hourOfDay : ## cookies
+//   },
+// };
+
+
+// //store object//
+// var limaStore = {
+//   name: 'Lima',
+//   customerMin: 2,
+//   customerMax: 16,
+//   customerAverage: 4.6,
+//   salesPerHour: [],
+//   //Customer/sales per hour//
+//   getHourlySales: function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+//     console.log(this.salesPerHour);
+//   },
+//   render: function(){
+//     this.getHourlySales();
+//     // output HTML to the DOC
+//     // Unordered list with the name of the city
+//     var storesArticle = document.getElementById('stores');
+//     var cityUL = document.createElement('ul');
+//     var cityHeader = document.createElement('h1');
+//     cityHeader.textContent = this.name;
+//     cityUL.appendChild(cityHeader);
+//     // I need to create a LI for every hour the store is open
+//     for(var i = 0; i < hours.length; i++){
+//       var hourLI = document.createElement('li');
+//       hourLI.textContent = `${hours[i]}: ${this.salesPerHour[i]} cookies`;
+//       cityUL.appendChild(hourLI);
+//     }
+//     // create the total
+//     var total = 0;
+//     for(var i = 0; i < this.salesPerHour.length; i++){
+//       total += this.salesPerHour[i];
+//     }
+//     var totalLI = document.createElement('li');
+//     totalLI.textContent = `Total ${total} cookies`;
+//     cityUL.appendChild(totalLI);
+
+//     storesArticle.appendChild(cityUL);
+//     // 2 pieces of data: hourOfDay : ## cookies
+//   },
+// };
+
+// ///////////////////Creating Table ///////////////////////////
+// // links to the myTable link in sales.html and calls it myTable
+// var myTable = document.getElementById('myTable');
+
+// // array of hours
+// // var coffeeArray = ['Latte', 'Mocha', 'Americano', 'Cappiccino'];
+
+// //creates a table named coffeeTable
+// var coffeeTable = document.createElement('table');
+
+// //creates and headerRow
+// var headerRow = document.createElement('tr');
+
+
+// ///////Creates the Header.//////////////////////////////////
+// // by using a for loop that runs the length of the hours array.
+// for(var i = 0; i < hours.length; i++){
+//   //creates a heading called tableHeader
+//   var tableHeader = document.createElement('th');
+// //   //add text in the table header relative to the hours array[0, 1, 2,....]
+// //   tableHeader.textContent = hours[i];
+// //   //append will take the value defined in tableHeader and append it to the headerRow
+// //   headerRow.appendChild(tableHeader);
+// // }
+// // // will append the headerRow to the coffeeTable
+// // coffeeTable.appendChild(headerRow);
+
+
+// // //Creates rows of data using a nested for loop to create a row as many times as needed
+// // //for loop that runs 4 times, (need to switch it to number of locations)
+
+// // for(var i = 0; i < 5; i++){
+// // //variable row is created
+// //   var row = document.createElement('tr');
+// //   //nested for loop
+// //   for(var j = 0; j < hours.length; j++){
+// //     //data element is created
+// //     var tableData = document.createElement('td');
+// //     //assigns a random number to table data (need to reference the min/max from each sites)
+// //     tableData.textContent = Math.floor(getRandomInt(0, 100));
+// //     //adds that data to a row
+// //     row.appendChild(tableData);
+// //   }
+// //   // append the value of row into the table
+// //   coffeeTable.appendChild(row);
+// // }
+// // //append the rows to the myTable table
+// // myTable.appendChild(coffeeTable);
+
+
+// // //Need to add another column with the totals for each location, add to the end of each nested for loop
+
+
+
+// // //Need to create a 3rd for loop to create a row of totals
+// // // will need to select the appropriate value from each row across the multiple locations
 
 
 
 
-
-// var element = document.createElement('ul');
-
-// element.textContent = 'Hello';
-
-// var seattleStore = document.getElementById('seattleStore');
-
-// seattleStore.appendChild(element);
+// // seattleStore.render();
+// // tokyoStore.render();
+// // dubaiStore.render();
+// // parisStore.render();
+// // limaStore.render();
 
 
+// // var salesPerHour = [];
+// var badConstructor = Cookiemonster(Seatte, 25, 45, 5);
+// console.log(badConstructor);
 
-
-
-
-// //insert object into sales.html site
-// var seattleStoreArticle = document.getElementById('seattleStore');
-
-
-// //create an unordered list for the new location
-// var newStoreUL = document.createElement('ul');
-// newStoreUL.textContent = seattleStore.name;
-
-// // Created one LI
-// var salesPerCustomerLI = document.createElement('li');
-// salesPerCustomerLI.textContent = `${seattleStore.age}`;
-
-// // attached the li to the UL
-// newStoreUL.appendChild(salesPerCustomerLI);
-
-// // Created a second LI
-// var weightLI = document.createElement('li');
-// weightLI.textContent = `${seattleStore.weight}`;
-// // Attached the LI to the UL
-// newCatUL.appendChild(weightLI);
-
-// catArticle.append(newCatUL);
-
-// var numbersUL = document.createElement('ul');
-
-// for(var i = 0; i < 5; i++){
-//   var newTag = document.createElement('li');
-//   newTag.textContent = i;
-//   numbersUL.append(newTag);
+// /////////////////////////Constructor////////////////////////////
+// //inputs name, customerMin, customerMax, customerAverage and determines salesperhout
+// function Cookiemonster(name, customerMin, customerMax, customerAverage){
+//   this.name = name;
+//   this.customerMin = customerMin;
+//   this.customerMax = customerMax;
+//   this.customerAverage = customerAverage ;
+//   this.salesPerHour = function(){
+//     // Go through the hours of the day
+//     for (var i = 0; i < hours.length; i++){
+//     // create a variable named customersPerHour and call the random function
+//       var customersPerHour = getRandomInt(this.customerMin, this.customerMax);
+//       // create a new varaible called totalCookiesPerHour = customersPerHour * this.customerAverage
+//       var totalCookiesPerHour = Math.floor(customersPerHour * this.customerAverage);
+//       // add the totalCookies to the salesPerHourArray
+//       this.salesPerHour.push(totalCookiesPerHour);
+//     }
+//     console.log(this.salesPerHour);
+//   };
 // }
 
-// locationArticle.appendChild(numbersUL);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Corey's Code
-
-
-
-
-
-// var hoursOfOperation = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12am:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
-
-// //create a random number between maxCustomerOrder and minCustomerOrder
-// function randomNumber(max,min){
-//     return(Math.random() * (max - min)) + min;
-// }
-// console.log(getRandomInt(65,23));
-
-
-// //create an object that stores min/max hourly customers
-// var seattle = {
-//     location: 'Seattle',
-//     minCustomerOrder: 23,
-//     maxCustomerOrder: 65,
-//     avgCustomerDemand: 6.3,
-
-//         //Create a function that creates an array of cookiesPerHour (gets a random number, multiplies by 6.3 and creates an array)
-//         cookiesPerHour: function(){
-//         var cookiesPerHour = [];
-//         for (var i=0; i < hoursOfOperation.length; i++ ){
-//             var hourlyCust = randomNumber(maxCustomerOrder, minCustomerOrder);
-//             totalSales = multiply(hourlyCust, avgCustomerDemand);
-//             cookiesPerHour.push(totalSales);
-//         }
-//         console.log(seattle.cookiesPerHour);
-
-// }
-
-
-
-//     // # of two arrays have same length
-//     var cats = ['josie', 'belle', 'frodo'];
-//     var catAges = ['9', '8', '10'];
-//     van answer = '';
-//     for(var i=0; i < cats.length; i++){
-//         answer += `${cats[i]} is ${catAges[i]} years old ||`;} // the ` is not an apostophe, is next to the number 1. Template literals is the ${}
-
-
-
-
-
-//     //  for loop that goes through the number of occurrences in the hoursOfOperation and creates an array with a random number between minCustomerOrder and MaxCustomerOrder
-
-
-
-// //combines the hours of operations and the total sales per hour
-// varSales = '';
-// for(var i=0; i<hoursOfOperation.length; i++){
-//     varSales += `${hoursOfOperation[i]} ${totalSalesPerHour} cookies ||`;}
-
-
-
-
-
-//         //Total amount, use altSum +=myarray
-//             var myArray = [4,8,15,16,23,42]; //change to reference the array of total customer sales per day
-//         var altSum = 0;
-//         for(var i=0; i<myArray.length; i++){
-//             altSum += myArray[i]
+//Seattle store object//
+seattleStore = {
+  store: 'Seattle',
+  customerMin: 23,
+  customerMax: 65,
+  customerAverage: 6.3,
+//This function calculates customers per HR & sales per HR//
+hourlySales: function(){
+  var customersPerHour = [];
+  var salesPerCustomer = [];
+  for (i=0; i<hours.length; i++){
+      customersPerHour.push(getRandomInt(this.customerMin,this.customerMax));
+  }    
+  for (i=0; i<hours.length; i++){
+      salesPerCustomer.push(customersPerHour[i] * this.customerAverage);
+  }
+  console.log(customersPerHour);
+  console.log(salesPerCustomer);
+  }
+  ,
+totalSales: function(){
+  for (i=0; i<salesPerCustomer.length; i++);
+  var total = salesPerCustomer.push
+  console.log (total);
+  }
+}
+seattleStore.hourlySales();
+seattleStore.totalSales();

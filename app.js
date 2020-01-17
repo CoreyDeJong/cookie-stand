@@ -91,17 +91,25 @@ function renderFooter (){
   footerStore.textContent = 'Hourly Totals';
   footerRow.appendChild(footerStore);
 
-
-  var totalHourlySales = [];
+  var grandTotalSales = 0;
+  var totalHourlySales = 0;
 
   for (i = 0; i < hours.length; i++){
-    var tHSales = 0;
-    for (j = 0; j < storeLocations.length; j++){
-      tHsales += storeLocations[j].hourlySales[j];
-      // gTotal += storeLocations[j];
-      console.log(totalHourlySales);
+    totalHourlySales = 0;
+    for (var j = 0; j < storeLocations.length; j++){
+      totalHourlySales += storeLocations[j].hourlySales[i];
+      grandTotalSales += storeLocations[j].hourlySales[i];
+      //console.log(totalHourlySales);
     }
+    var hourlySalesCell = document.createElement('th');
+    hourlySalesCell.textContent = totalHourlySales;
+    footerRow.appendChild(hourlySalesCell);
   }
+  var grandTotalSalesCell = document.createElement('th');
+  grandTotalSalesCell.textContent = grandTotalSales;
+  footerRow.appendChild(grandTotalSalesCell);
+  tableBody.appendChild(footerRow);
+
 }
 //Executable Code
 renderHeader();

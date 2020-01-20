@@ -1,0 +1,87 @@
+header {
+    background-image: url("Images/river-image.jpeg"); 
+    background-repeat: no-repeat; 
+    background-size: 100%; 
+    position: sticky;
+    height: 50em;
+
+}
+#salmon {
+        height: 8em;
+        display: block;
+        margin: auto; 
+}
+
+body {
+    background-color: rgb(204, 149, 97);
+}
+
+
+h1 {
+    display: block;
+    padding-top: 10mm;
+    font-size: 4rem;
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+/* Small salmon icons */
+
+/* main{
+    width: 960px;
+    margin: 30px auto;
+  } */
+  
+  main ul li{
+    list-style: none;
+    /* margin: 30px 30px 30px 0px; */
+    display: block;
+    margin: auto;   }
+  
+#fish {
+    height: 200px;
+    }
+
+#Chinook {
+    height: 100px;
+}
+
+#cutter {
+    height: 50px;
+}
+
+#frosted-cookie {
+    height: 200px;
+
+}
+
+#shirt {
+    height: 200px;
+} 
+
+li {
+    padding-top: 5%;
+    font-size: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: fantasy;
+    color: rgb(224, 210, 210);
+    width: 90%
+}
+
+#Family {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 50%;
+}
+
+#Store-Info {
+    /* background-color: aliceblue; */
+} 
+
+footer p {
+    font-size: x-large;
+    text-align: center;
+}

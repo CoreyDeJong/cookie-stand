@@ -131,7 +131,7 @@ render();
 
 
 // We grab our element from the DOM.
-var form = document.getElementById('Store-Info');
+var form = document.getElementById('salesTable');
 
 // We assign an event listener of type ' submit', to our form element, and passing in a function to run when the event is detected.
 form.addEventListener('submit', handleSubmit);

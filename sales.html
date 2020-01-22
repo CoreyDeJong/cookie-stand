@@ -1,22 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sales</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
+
 <body>
     <header>
-        <h1>SALES</h1>
-        <img src="salmon.png">
+        <h1>Location Sales Tracker</h1>
+        <img id="salmon" src="Images/salmon.png" alt="Picture of Salmon">
     </header>
+    <table>
+        <tbody id="salesTable"></tbody>
+    </table>
 
-    <article id="stores"></article>
+    <form id="Store-Info">
+        <P>Store Name</P>
+        <input name="storeName" type="text">
+        <p>Min. Customers</p>
+        <input name="minumumCustomers" type="number">
+        <p>Max. Customers</p>
+        <input name="maximumCustomers" type="number">
+        <p>Avg. Sales/Customer</p>
+        <input name="averageSales" type="number" step="0.1">
+        <p></p>
+        <button type="submit">Submit</button>
+    </form>
 
     <article id="salesTable"></article>
     
+
     <script src="app.js"></script>
 </body>
+
 </html>

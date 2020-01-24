@@ -126,22 +126,9 @@ function render() {
   renderFooter();
 }
 render();
-// =======
-// // // Collaborated with Alex and Anthony, mad props for their skills//
 
-// 'use strict';
-// //These are the hours the stores are open//
-// var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-// //This is the  random nember generator//
-// function getRandomInt(customerMin, customerMax){
-//   var randomNumber = Math.random() * (customerMax - customerMin) + customerMin;
-//   return Math.floor(randomNumber);
-// }
-// >>>>>>> master
 
-//Global Array
-var storeLocations = [];
 
 
 ////////////////////////////////Constructor/////////////////////////////
@@ -166,17 +153,6 @@ function SalmonCookies(storeName, customerMin, customerMax, customerAverage){
   }
   // console.log(this.hourlySales);
 }
-
-// <<<<<<< class07
-//-------------------------------Lab 9 Form & Events------------------------------------------------
-// =======
-// //////////////////////Instances////////////////////////////
-// var seattleStore = new SalmonCookies('Seattle', 23,65,6.3);
-// var tokyoStore = new SalmonCookies('Tokyo', 3,24,1.2);
-// var dubaiStore = new SalmonCookies('Dubai', 11,38,3.7);
-// var parisStore = new SalmonCookies('Paris', 20,38,2.3);
-// var limaStore = new SalmonCookies('Lima', 2,16,4.6);
-// >>>>>>> master
 
 
 // We grab our element from the DOM.
